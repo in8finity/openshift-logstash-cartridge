@@ -9,6 +9,7 @@ input {
 
     http {
         port => 9400
+        host => "<%= ENV['OPENSHIFT_ELASTICSEARCH_IP'] %>"
     }
 
 }
@@ -18,7 +19,7 @@ output {
     elasticsearch {
         host => "<%= ENV['OPENSHIFT_ELASTICSEARCH_IP'] %>"
         port => 9200
-        # stick to local elastic search node
+        protocol => "http"
     }
 
 }
